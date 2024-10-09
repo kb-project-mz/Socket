@@ -25,7 +25,16 @@ app.post('/updateBalance', (req, res) => {
 
 // auth 데이터 프론트로 보내기
 app.post('/updateAuth', (req, res) => {
+  // console.log(req.body);
   io.emit('authUpdate', req.body);
+  res.sendStatus(200);
+});
+
+app.post('/updateMetrics', (req, res) => {
+  if (req.body) {
+    io.emit('metricsUpdate', req.body);
+    console.log('admin data : ', req.body);
+  }
   res.sendStatus(200);
 });
 
