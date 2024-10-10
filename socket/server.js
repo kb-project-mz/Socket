@@ -30,10 +30,18 @@ app.post('/updateAuth', (req, res) => {
   res.sendStatus(200);
 });
 
-app.post('/updateMetrics', (req, res) => {
+app.post('/updateTodayMetrics', (req, res) => {
   if (req.body) {
-    io.emit('metricsUpdate', req.body);
-    console.log('admin data : ', req.body);
+    io.emit('todayUpdate', req.body);
+    console.log('today data : ', req.body);
+  }
+  res.sendStatus(200);
+});
+
+app.post('/updateTotalMetrics', (req, res) => {
+  if (req.body) {
+    io.emit('totalUpdate', req.body);
+    console.log('total data : ', req.body);
   }
   res.sendStatus(200);
 });
