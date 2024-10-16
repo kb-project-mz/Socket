@@ -15,7 +15,6 @@ const io = new Server(server, {
   },
 });
 
-// balance 데이터 프론트로 보내기
 app.post('/updateBalance', (req, res) => {
   if (req.body) {
     io.emit('balanceUpdate', req.body);
@@ -23,7 +22,6 @@ app.post('/updateBalance', (req, res) => {
   res.sendStatus(200);
 });
 
-// auth 데이터 프론트로 보내기
 app.post('/updateAuth', (req, res) => {
   io.emit('authUpdate', req.body);
   res.sendStatus(200);
